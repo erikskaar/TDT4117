@@ -3,6 +3,7 @@ import random
 import string
 
 import gensim
+from gensim.corpora import dictionary
 from nltk.stem.porter import PorterStemmer
 
 random.seed(123)
@@ -20,7 +21,7 @@ def remove_backslash(paragraph):
 
 # task 1
 def get_clean_text():
-    f = codecs.open("pg3300.txt", "r", "utf-8")
+    f = codecs.open("assignment_3/pg3300.txt", "r", "utf-8")
     text = f.read()
     f.close()
 
@@ -54,7 +55,7 @@ def dict_building(paragraphs):
     # create dictionary
     dictionary = gensim.corpora.Dictionary(paragraphs)
     # generate stopword list
-    with open("common-english-words.txt", "r") as stopword_file:
+    with open("assignment_3/common-english-words.txt", "r") as stopword_file:
         stopwords = stopword_file.read().split(",")
     # add check if the stopword exists in the dictionary to ensure that it doesn't crash
     stopword_ids = [dictionary.token2id[x] for x in stopwords if x in dictionary.token2id]
@@ -80,8 +81,63 @@ def retrieval_models(bag_of_words, dictionary):
     print(lsi_model.show_topics())
     return
 
+# task 4
+def querying(query: list):    
+    # tokenize
+    query_tokenized = [x.split(" ") for x in query][0]
 
+    # remove punctuation
+    table = str.maketrans(dict.fromkeys(string.punctuation))
+    query_tokenized = [word.translate(table) for word in query_tokenized]
+
+    # stem
+    stemmer = PorterStemmer()
+    query_stemmed = [stemmer.stem(word) for word in query_tokenized]
+    
+    # create dictionary
+    dictionary = gensim.corpora.Dictionary([query_stemmed])
+    # generate stopword list
+    with open("assignment_3/common-english-words.txt", "r") as stopword_file:
+        stopwords = stopword_file.read().split(",")
+    # add check if the stopword exists in the dictionary to ensure that it doesn't crash
+    stopword_ids = [dictionary.token2id[x] for x in stopwords if x in dictionary.token2id]
+    # filter dictionary to remove stopwords
+    dictionary.filter_tokens(stopword_ids)
+
+    # convert to BOW representation
+    bag_of_words = dictionary.doc2bow(query_stemmed)
+    # 4.2 Convert BOW to TF-IDF representation
+    
+    pgs = get_clean_text()
+    bow, filtered_dict = dict_building(pgs)
+    
+    tfidf_model = gensim.models.TfidfModel(corpus=bow)
+    # create weights
+    
+    tfidf_weights = tfidf_model[bag_of_words]
+    print(dictionary ,tfidf_weights)
+    
+    # 4.3 
+    
+    # 4.4
+    lsi_model = gensim.models.LsiModel(corpus=bow, id2word=dictionary, num_topics=100)
+    lsi_query = lsi_model[bag_of_words]
+    print(sorted(lsi_query, key=lambda kv: -abs(kv[1]))[:3])
+    print(lsi_model.show_topics())
+    
+    ## pseudo code
+    '''
+    doc2similarity = enumerate(lsi_index[lsi_query])
+    print( sorted(doc2similarity, key=lambda kv: -kv[1])[:3] )
+    '''
+    
+    
+#print(querying(["What is the function of money?"]))
+print(querying(["How taxes influence Economics?"]))
+
+'''
 if __name__ == '__main__':
     pgs = get_clean_text()
     bow, filtered_dict = dict_building(pgs)
     retrieval_models(bow, filtered_dict)
+'''

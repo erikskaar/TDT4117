@@ -1,0 +1,59 @@
+---3.5 first 3 LSI topics---
+[(0, '0.245*"thi" + 0.224*"upon" + 0.202*"those" + 0.196*"countri" + 0.190*"wa" + 0.184*"more" + 0.181*"great" + 0.175*"part" + 0.157*"ani" + 0.147*"hi"'), (1, '-0.850*"0" + -0.266*"2" + -0.257*"1" + -0.222*"8" + -0.186*"4" + -0.141*"6" + -0.102*"3" + -0.089*"10" + -0.070*"16" + -0.046*"5"'), (2, '-0.367*"wa" + -0.313*"upon" + 0.256*"labour" + 0.230*"countri" + 0.207*"quantiti" + 0.190*"produc" + -0.188*"compani" + 0.187*"employ" + -0.149*"thi" + -0.130*"year"')]
+[(296, 1), (1607, 1), (2724, 1)]
+---4.2---
+index 296 | word: influenc | weight: 0.5162040028743783
+index 1607 | word: tax | weight: 0.25504309398982505
+index 2724 | word: econom | weight: 0.8176102051861669
+---4.3---
+
+[Document 384]
+      As men, like all other animals, naturally multiply in proportion to the
+      means of their subsistence, food is always more or less in demand. It can
+      always purchase or command a greater or smaller quantity of labour, and
+      somebody can always be found who is willing to do something in order to
+      obtain it. The quantity of labour, indeed, which it can purchase, is not
+
+[Document 2007]
+      Capitation Taxes.
+
+
+[Document 2017]
+      The impossibility of taxing the people, in proportion to their revenue, by
+      any capitation, seems to have given occasion to the invention of taxes
+      upon consumable commodities. The state not knowing how to tax, directly
+      and proportionably, the revenue of its subjects, endeavours to tax it
+      indirectly by taxing their expense, which, it is supposed, will, in most
+
+---4.4---
+---4.4.1---
+
+[Topic 4]
+(4, '-0.427*"tax" + -0.392*"upon" + 0.287*"trade" + -0.230*"land" + -0.217*"hi" + -0.204*"rent" + 0.198*"wa" + 0.193*"countri" + 0.136*"great" + 0.129*"compani"')
+
+[Topic 10]
+(10, '-0.290*"manufactur" + 0.273*"trade" + -0.269*"wa" + -0.265*"produc" + -0.263*"labour" + 0.253*"tax" + 0.230*"price" + -0.167*"upon" + 0.161*"profit" + -0.154*"countri"')
+
+[Topic 14]
+(14, '0.318*"part" + -0.300*"thi" + 0.273*"great" + 0.252*"greater" + -0.247*"tax" + 0.208*"upon" + -0.157*"trade" + -0.155*"wa" + 0.152*"hi" + -0.143*"those"')
+---4.4.2---
+
+[Document 2017]
+      The impossibility of taxing the people, in proportion to their revenue, by
+      any capitation, seems to have given occasion to the invention of taxes
+      upon consumable commodities. The state not knowing how to tax, directly
+      and proportionably, the revenue of its subjects, endeavours to tax it
+      indirectly by taxing their expense, which, it is supposed, will, in most
+
+[Document 2010]
+      Such taxes, therefore, if it is attempted to render them equal, become
+      altogether arbitrary and uncertain; and if it is attempted to render them
+      certain and not arbitrary, become altogether unequal. Let the tax be light
+      or heavy, uncertainty is always a great grievance. In a light tax, a
+      considerable degree of inequality may be supported; in a heavy one, it is
+
+[Document 2050]
+      High taxes, sometimes by diminishing the consumption of the taxed
+      commodities, and sometimes by encouraging smuggling frequently afford a
+      smaller revenue to government than what might be drawn from more moderate
+      taxes.
